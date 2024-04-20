@@ -24,6 +24,8 @@ body, button {
 }
 
 .intro-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* This is a bold weight */
     font-size: 2em;
     color: #333;
 }
@@ -32,15 +34,20 @@ body, button {
     font-size: 2.5em;
     font-weight: bold;
     color: #555;
-    height: 50px;
+    min-height: 50px;
+    width: 100%;
     overflow: hidden;
-    display: inline-block;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .word {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500; /* Adjust the weight as necessary */
     position: absolute;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 2s ease-in-out;
     will-change: opacity;
 }
