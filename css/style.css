@@ -40,7 +40,7 @@ body, button {
 
 .word {
     position: absolute;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 2s ease-in-out;
     will-change: opacity;
 }
