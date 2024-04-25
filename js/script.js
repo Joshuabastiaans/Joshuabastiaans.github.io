@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM fully loaded and parsed");
-    // ... rest of your code
 });
 
 
@@ -22,4 +21,5 @@ function nextWord() {
         aboutMe.classList.toggle('hidden');
         this.textContent = aboutMe.classList.contains('hidden') ? 'Who am I?' : 'Hide';
     });
+
 });
