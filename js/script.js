@@ -1,47 +1,44 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("DOM fully loaded and parsed");
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
     const words = document.querySelectorAll('.word');
     let count = 0;
 
-function nextWord() {
-    words[count].style.opacity = '0';
-    count = (count + 1) % words.length;
-    words[count].style.opacity = '1';
-}
+    function nextWord() {
+        words[count].style.opacity = '0';
+        count = (count + 1) % words.length;
+        words[count].style.opacity = '1';
+    }
     setInterval(nextWord, 4000); // Change word every 4 seconds
-
-    const btn = document.getElementById('who-am-i');
-    const aboutMe = document.getElementById('about-me');
-
-    btn.addEventListener('click', function () {
-        aboutMe.classList.toggle('hidden');
-        this.textContent = aboutMe.classList.contains('hidden') ? 'Who am I?' : 'Hide';
-    });
-
-    const button = document.querySelector('button');
+    
+    
+    const openButton = document.getElementById('open-overlay');
+    const closeButton = document.getElementById('close-overlay');
+    const overlay = document.getElementById('overlay');
+    // Gradient animation for the open-overlay button
     let angle = 0;
+    setInterval(function() {
+        openButton.style.backgroundImage = `linear-gradient(${angle}deg, #6e8efb, #a777e3)`;
+        angle = (angle + 1) % 360;
+    }, 100);
 
-    function updateGradient() {
-        button.style.backgroundImage = `linear-gradient(${angle}deg, #6e8efb, #a777e3)`;
-        angle = (angle + 1) % 360; // Increment angle, reset after full rotation
+    function openOverlay() {
+        overlay.classList.remove('hidden');
+        setTimeout(() => {
+            overlay.classList.add('visible'); // Ensure visible properties are set after removing hidden
+        }, 10); // Short delay to ensure CSS applies correctly
     }
 
-    // Set interval for continuously updating the gradient
-    setInterval(updateGradient, 100); // Update gradient every 100ms
+    function closeOverlay() {
+        overlay.classList.remove('visible');
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+        }, 500); // Delay should match transition time
+    }
+        // Event listeners for the buttons
+    openButton.addEventListener('click', openOverlay);
+    closeButton.addEventListener('click', closeOverlay);
 
-    // Event listeners for smooth transition adjustments
-    button.addEventListener('mouseenter', () => {
-        // This will slow the transition effect when the mouse hovers over the button
-        button.style.transition = 'background-image 1s ease-in-out';
-    });
-
-    button.addEventListener('mouseleave', () => {
-        // This will reset the transition effect speed when the mouse leaves the button
-        button.style.transition = 'background-image 0.3s ease-in-out';
+    // Prevent the page from scrolling while the overlay is open
+    overlay.addEventListener('scroll', function(event) {
+        event.preventDefault();
     });
 });
-

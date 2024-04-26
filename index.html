@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <video autoplay loop muted playsinline id="bg-video">
+        <source src="assets/videos/natuur.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div class="top-spacer"></div>
     <div class="text-container">
         <span class="intro-text">...to escape to another</span>
@@ -19,12 +24,30 @@
             <span class="word">universe</span>
         </span>
     </div>
-    <button id="who-am-i">Who am I?</button>
     <div class="bottom-spacer"></div>
-    <section id="about-me" class="hidden">
-        <h2>About Me</h2>
-        <p>Here you will find information about my skills and past work.</p>
-    </section>
+    <button id="open-overlay">Who am I?</button>
+    
+    <!-- Overlay content starts here -->
+    <div id="overlay" class="overlay hidden">
+    <div class="overlay-content">
+        <div class="overlay-header">
+            <img src="path/to/profile-image.jpg" alt="Profile Image" class="profile-image">
+            <h1>Who Am I?</h1>
+        </div>
+        <p class="bio">This is a short bio about Joshua. Here you will find information about my skills and past work in design, solving puzzles, and creating immersive audio experiences.</p>
+        <div class="design-section">
+            <h2>Design</h2>
+            <div class="buttons-container">
+                <button class="design-button" style="background-image: url('path/to/experience-design.jpg');">Experience Design</button>
+                <button class="design-button" style="background-image: url('path/to/puzzle-design.jpg');">Puzzle Design</button>
+                <button class="design-button" style="background-image: url('path/to/audio-design.jpg');">Audio Design</button>
+            </div>
+            <button id="close-overlay">Close</button>
+        </div>
+    </div>
+</div>
+    <!-- Overlay content ends here -->
+
     <script src="js/script.js"></script>
 </body>
 </html>

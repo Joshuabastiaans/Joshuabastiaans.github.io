@@ -11,20 +11,22 @@ body, button {
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes first child to middle, second child to bottom */
+    justify-content: flex-start; /* Pushes first child to middle, second child to bottom */
     align-items: center;
     height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .text-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4vw;
+    font-size: 5vw;
     position: relative;
-    left: -7%; /* Adjust if necessary */
+    left: -12%; /* Adjust if necessary */
 }
 
 .intro-text, .dynamic-text {
@@ -61,11 +63,11 @@ body {
 }
 
 .top-spacer {
-    flex-grow: .1;
+    flex-grow: .4;
 }
 
 .bottom-spacer {
-    flex-grow: 0;
+    flex-grow: 0.4;
 }
 
 
@@ -90,19 +92,108 @@ button {
 }
 
 button:hover {
-    box-shadow: 0 5px 10px #00000080;
-    transform: scale(1.05); /* Slight increase in size */
+    transform: scale(1.1); /* Slight increase in size */
+    cursor: pointer; /* Ensure the cursor indicates it's clickable */
 }
 
-button:active {
-    transform: scale(0.95); /* Button presses down when clicked */
+button.disabled {
+    pointer-events: none; /* Disable clicks on the button */
+    opacity: 0.5; /* Visual feedback that the button is disabled */
+    cursor: default; /* Default cursor to indicate it's not clickable */
 }
 
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(249, 249, 249);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Ensure this is only when hidden */
+}
+
+.overlay.visible {
+    pointer-events: auto; /* Allow interactions when overlay is visible */
+    opacity: 1;
+}
+
+.overlay-content {
+    width: 100%;
+    max-width: 800px; /* Maximum width of the content area */
+    margin: 20px;
+}
+
+.overlay-header {
+    text-align: center;
+}
+
+.profile-image {
+    width: 120px; /* Example size, adjust as needed */
+    height: 120px; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circle shape */
+    margin: 20px auto; /* Centering the image */
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around; /* Distribute categories evenly */
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+.category {
+    width: 30%; /* Example width, adjust for responsiveness */
+    margin: 10px;
+    text-align: center;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+    .category {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
 
 .hidden {
     display: none;
+    transition: none;
 }
 
 .visible {
-    display: block;
+    display: flex;
+    opacity: 1;
+    pointer-events: auto; /* Make it interactive when visible */
+}
+
+
+#bg-video {
+    position: fixed; /* Fixed position to cover the entire screen */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 100vw; /* Cover entire viewport width */
+    height: 100vh; /* Cover entire viewport height */
+    object-fit: cover; /* Ensure video covers the area without distortion */
+    transform: translate(-50%, -50%); /* Adjust the video to be truly centered */
+    z-index: -100; /* Stay behind all other content */
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #bg-video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    #bg-video {
+        width: auto;
+        height: 100%;
+    }
 }
