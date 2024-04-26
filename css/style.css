@@ -24,7 +24,7 @@ body {
     justify-content: center;
     font-size: 4vw;
     position: relative;
-    left: -5%; /* Adjust if necessary */
+    left: -7%; /* Adjust if necessary */
 }
 
 .intro-text, .dynamic-text {
@@ -43,10 +43,10 @@ body {
     font-weight: bold;
     color: #ffffff;
     text-shadow: 
-        -0.02em -0.02em 0 #000,  
-        0.02em -0.02em 0 #000,
-        -0.02em 0.02em 0 #000,
-        0.02em 0.02em 0 #000; /* Shadow size scales with the font size */
+        -0.025em -0.025em 0 #000,  
+        0.025em -0.025em 0 #000,
+        -0.025em 0.025em 0 #000,
+        0.025em 0.025em 0 #000; /* Shadow size scales with the font size */
 }
 
 .word {
@@ -65,25 +65,39 @@ body {
 }
 
 .bottom-spacer {
-    flex-basis: 0;
+    flex-grow: 0;
 }
 
 
 button {
-    background-color: #007BFF;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
     color: white;
-    border: none;
-    padding: 0.5vw 2.5vw;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ffffff40;
+    padding: 0.5vh 2.5vh;
     cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 2vw;
-    align-self: center; /* Ensures button is centered horizontally */
-    width: auto; /* Auto width for button based on content and padding */
+    font-size: 3vh;
+    align-self: center;
+    width: auto;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px #00000050;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1); /* Start at normal scale */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Apply transitions to all interactions */
 }
 
 button:hover {
-    background-color: #0056b3;
+    box-shadow: 0 5px 10px #00000080;
+    transform: scale(1.05); /* Slight increase in size */
 }
+
+button:active {
+    transform: scale(0.95); /* Button presses down when clicked */
+}
+
 
 .hidden {
     display: none;
