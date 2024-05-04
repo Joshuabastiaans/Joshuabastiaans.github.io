@@ -109,7 +109,8 @@ button.disabled {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(249, 249, 249);
+    background-color: rgb(15, 15, 15);
+    color: #f2f2f2;
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -117,6 +118,7 @@ button.disabled {
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none; /* Ensure this is only when hidden */
+    overflow: auto;
 }
 
 .overlay.visible {
@@ -125,42 +127,78 @@ button.disabled {
 }
 
 .overlay-content {
-    width: 100%;
-    max-width: 800px; /* Maximum width of the content area */
-    margin: 20px;
-}
-
-.overlay-header {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
     text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.overlay-header img {
+    width: 15vw;
+    height: 15vw;
+    margin-bottom: 20px;
+}
+.bio {
+    margin-bottom: 20px;
 }
 
-.profile-image {
-    width: 120px; /* Example size, adjust as needed */
-    height: 120px; /* Maintain aspect ratio */
-    border-radius: 50%; /* Circle shape */
-    margin: 20px auto; /* Centering the image */
+.design-section h2 {
+    margin-bottom: 10px;
 }
 
-.categories {
+.buttons-container {
     display: flex;
-    justify-content: space-around; /* Distribute categories evenly */
-    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    flex-direction: row; /* Horizontal layout by default */
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
 
-.category {
-    width: 30%; /* Example width, adjust for responsiveness */
-    margin: 10px;
-    text-align: center;
+.design-button {
+    flex: 1;
+    position: relative; /* Necessary for absolute positioning of pseudo-elements */
+    border: none;
+    color: white;
+    font-size: 1.5vw; /* Responsive font size */
+    text-transform: uppercase;
+    overflow: hidden; /* Keeps pseudo-elements contained */
+    margin-bottom: 1vw;
+    min-height: 50px; /* Ensures minimum usability size */
+    border-radius: 10px;
+    background-size: cover;
+    cursor: pointer;
 }
 
-/* Adjustments for smaller screens */
-@media (max-width: 600px) {
-    .category {
-        width: 100%;
-        margin-bottom: 20px;
+.design-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 10px; /* Match the border radius of the button */
+    transition: background 0.3s ease;
+}
+
+.design-button:hover:before {
+    background: linear-gradient(315deg, rgba(110, 142, 251, 0.8), rgba(167, 119, 227, 0.8));
+}
+
+@media (max-width: 768px) {
+    .buttons-container {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+    }
+
+    .design-button {
+        font-size: 4vw; /* Adjust font size for better readability on smaller screens */
+    }
+
+    .overlay-header img {
+        width: 20vw;
+        height: 20vw;
     }
 }
-
 .hidden {
     display: none;
     transition: none;

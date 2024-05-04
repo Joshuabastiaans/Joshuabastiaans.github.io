@@ -41,4 +41,19 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.addEventListener('scroll', function(event) {
         event.preventDefault();
     });
+
+    window.onload = function() {
+        var buttons = document.querySelectorAll('.design-button');
+        var style = document.createElement('style');
+        document.head.appendChild(style);
+
+        buttons.forEach(function(button, index) {
+            var randomDegrees = Math.floor(Math.random() * 360);
+            style.sheet.insertRule(`
+                .design-button:nth-child(${index + 1})::before {
+                    background: linear-gradient(${randomDegrees}deg, #6e8efb, #a777e3);
+                }
+            `, style.sheet.cssRules.length);
+        });
+    }
 });
