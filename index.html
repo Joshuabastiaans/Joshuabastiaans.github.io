@@ -1,53 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joshua - Creative Designer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <video autoplay loop muted playsinline id="bg-video">
-        <source src="assets/videos/natuur.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+      <source src="assets/videos/Trailer.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
 
     <div class="top-spacer"></div>
     <div class="text-container">
-        <span class="intro-text">...to escape to another</span>
-        <span class="dynamic-text">
-            <span class="word">world</span>
-            <span class="word">dimension</span>
-            <span class="word">reality</span>
-            <span class="word">universe</span>
-        </span>
+      <span class="intro-text">...to escape to another</span>
+      <span class="dynamic-text">
+        <span class="word">world</span>
+        <span class="word">dimension</span>
+        <span class="word">reality</span>
+        <span class="word">universe</span>
+      </span>
     </div>
     <div class="bottom-spacer"></div>
     <button id="open-overlay">Who am I?</button>
-    
+
     <!-- Overlay content starts here -->
     <div id="overlay" class="overlay hidden">
-    <div class="overlay-content">
+      <div class="overlay-content">
         <div class="overlay-header">
-            <img src="assets\img\pfp.png" alt="Profile Image" class="profile-image">
-            <h1>WHO AM I</h1>
+          <div class="overlay-profile-image">
+            <img
+              src="assets\img\pfp.png"
+              alt="Profile Image"
+              class="profile-image"
+            />
+          </div>
+          <div class="overlay-text">
+            <h1>WHO I AM</h1>
+            <p class="bio">
+              Hi, I'm Joshua. I am a creative (game) designer with a passion for
+              creating unique and immersive experiences.
+              <br />
+            </p>
+          </div>
         </div>
-        <p class="bio">This is a short bio about Joshua. Here you will find information about my skills and past work in design, solving puzzles, and creating immersive audio experiences.</p>
         <div class="design-section">
-            <h2>Design</h2>
-            <div class="buttons-container">
-                <button class="design-button" style="background-image: url('assets\img\layout\test_layout.png');">Experience Design</button>
-                <button class="design-button" style="background-image: url('assets\img\layout\test_layout.png');">Puzzle Design</button>
-                <button class="design-button" style="background-image: url('assets\img\layout\test_layout.png');">Audio Design</button>
-            </div>
-            <button id="close-overlay">X</button>
+          <div class="buttons-container">
+            <button
+              class="design-button"
+              style="
+                background-image: url('assets/img/layout/experience_design.png');
+              "
+              data-text="Experience Design"
+            ></button>
+            <button
+              class="design-button"
+              style="
+                background-image: url('assets/img/layout/puzzle_design.png');
+              "
+              data-text="Puzzle Design"
+            ></button>
+            <button
+              class="design-button"
+              style="
+                background-image: url('assets/img/layout/sound_design.png');
+              "
+              data-text="Audio Design"
+            ></button>
+          </div>
+          <button id="close-overlay">X</button>
         </div>
+      </div>
     </div>
-</div>
+
     <!-- Overlay content ends here -->
 
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
