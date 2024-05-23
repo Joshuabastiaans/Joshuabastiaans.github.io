@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://use.typekit.net/syi5tvt.css" />
   </head>
   <body>
     <video autoplay loop muted playsinline id="bg-video">
@@ -23,6 +24,7 @@
       <span class="dynamic-text">
         <span class="word">world</span>
         <span class="word">dimension</span>
+        <span class="word">self</span>
         <span class="word">reality</span>
         <span class="word">universe</span>
       </span>
@@ -44,8 +46,15 @@
           <div class="overlay-text">
             <h1>WHO I AM</h1>
             <p class="bio">
-              Hi, I'm Joshua. I am a creative (game) designer with a passion for
-              creating unique and immersive experiences.
+              Hi, I'm Joshua. I am a creative game designer with a passion for
+              crafting unique and immersive experiences. Just like other media,
+              games take people outside of their daily lives to escape and
+              connect. My goal is to create games that make you connect and feel
+              what it’s like to be someone else, somewhere else. As a
+              second-year Game Design student at HKU, I'm excited to continue
+              pushing the boundaries of game design and create experiences that
+              resonate deeply with players.
+
               <br />
             </p>
           </div>
@@ -58,6 +67,7 @@
                 background-image: url('assets/img/layout/experience_design.png');
               "
               data-text="Experience Design"
+              data-overlay="experience-overlay"
             ></button>
             <button
               class="design-button"
@@ -65,6 +75,7 @@
                 background-image: url('assets/img/layout/puzzle_design.png');
               "
               data-text="Puzzle Design"
+              data-overlay="puzzle-overlay"
             ></button>
             <button
               class="design-button"
@@ -72,14 +83,115 @@
                 background-image: url('assets/img/layout/sound_design.png');
               "
               data-text="Audio Design"
+              data-overlay="audio-overlay"
             ></button>
           </div>
-          <button id="close-overlay">X</button>
+
+          <!-- Questions Section -->
+          <div class="questions-container">
+            <button class="question-button" data-answer="answer1">
+              What inspires my creativity in game design?
+            </button>
+            <div id="answer1" class="answer hidden">
+              My entire life has been a source of inspiration for my creations.
+              The music I listen to, the movies I watch, and the games I play
+              all significantly influence the games I develop today. When it
+              comes to inspiring my team with a concept, I enjoy creating a
+              simple soundtrack that captures the vibe of the idea. Music
+              conveys emotions and nuances that words often can't describe, and
+              it helps align everyone's perception of the concept, ensuring
+              we're all on the same page.
+            </div>
+            <button class="question-button" data-answer="answer2">
+              Why do I choose to have many different disciplines?
+            </button>
+            <div id="answer2" class="answer hidden">
+              I also play the drums, and I’ve learned that creating
+              good-sounding drums requires understanding of the entire
+              composition. I believe that the same goes for games. To create
+              effective levels, puzzles or mechanics that suit the game I have
+              to understand the other disciplines that go into the development
+              process of the game. By familiarizing myself with various aspects
+              of the process, I can create more cohesive and engaging
+              experiences.
+            </div>
+          </div>
+
+          <div class="buttons-container">
+            <button
+              class="design-button"
+              style="background-image: url('assets/img/layout/experiments.png')"
+              data-text="Experiments"
+              data-overlay="experiments-overlay"
+            ></button>
+            <button
+              class="design-button"
+              style="background-image: url('assets/img/layout/art.png')"
+              data-text="Art"
+              data-overlay="art-overlay"
+            ></button>
+            <button
+              class="design-button"
+              style="background-image: url('assets/img/layout/programming.png')"
+              data-text="Programming"
+              data-overlay="programming-overlay"
+            ></button>
+          </div>
+
+          <button id="close-overlay" class="close-overlay-button">X</button>
+        </div>
+        <!-- Footer -->
+        <footer class="overlay-footer">
+          <div class="footer-content">
+            <p>Contact me at:</p>
+            <p>
+              <a href="mailto:joshuabastiaans@gmail.com"
+                >joshuabastiaans@gmail.com</a
+              >
+            </p>
+            <p>Phone: +31 629753748</p>
+            <div class="social-media-icons">
+              <a href="https://www.linkedin.com/in/joshua-bastiaans-217933212/"
+                ><img src="assets/icons/linkedin.png" alt="LinkedIn"
+              /></a>
+              <a href="https://www.instagram.com/joshuabastiaans_renders/"
+                ><img src="assets/icons/instagram.png" alt="Instagram"
+              /></a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Sub Overlays -->
+    <div id="experience-overlay" class="sub-overlay">
+      <div class="sub-overlay-content">
+        <button class="close-overlay-button">X</button>
+        <h2>Experience Design</h2>
+        <div class="sub-overlay-game">
+          <p>Experience design is all about...</p>
+          <!-- Add more content here -->
         </div>
       </div>
     </div>
 
-    <!-- Overlay content ends here -->
+    <div id="puzzle-overlay" class="sub-overlay">
+      <div class="sub-overlay-content">
+        <button class="close-overlay-button">X</button>
+        <h2>Puzzle Design</h2>
+        <p>Puzzle design focuses on creating...</p>
+        <!-- Add more content here -->
+      </div>
+    </div>
+
+    <div id="audio-overlay" class="sub-overlay">
+      <div class="sub-overlay-content">
+        <button class="close-overlay-button">X</button>
+        <h2>Audio Design</h2>
+        <p>Audio design involves crafting soundscapes...</p>
+        <!-- Add more content here -->
+      </div>
+    </div>
 
     <script src="js/script.js"></script>
   </body>
