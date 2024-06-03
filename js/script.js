@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       mainOverlay.classList.add("visible");
       openOverlays.push(overlay);
-      positionCloseButton();
+      checkAspectRatioAndPositionButton();
     }, 10); // Short delay to ensure CSS applies correctly
   });
 
@@ -126,17 +126,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  window.addEventListener("resize", positionCloseButton);
-  window.addEventListener("load", positionCloseButton);
+  function checkAspectRatioAndPositionButton() {
+    const isMinAspectRatio = window.matchMedia(
+      "(min-aspect-ratio: 1/1)"
+    ).matches;
+    positionCloseButton(isMinAspectRatio);
+  }
 
-  function positionCloseButton() {
+  window.addEventListener("resize", checkAspectRatioAndPositionButton);
+  window.addEventListener("load", checkAspectRatioAndPositionButton);
+
+  function positionCloseButton(isMinAspectRatio) {
     const overlayContent = document.querySelector(".overlay-content");
     const closeButton = document.querySelector(".close-overlay-button");
 
     if (overlayContent && closeButton) {
-      const overlayContentRect = overlayContent.getBoundingClientRect();
-      closeButton.style.left =
-        overlayContentRect.left - closeButton.offsetWidth - 20 + "px";
+      if (isMinAspectRatio) {
+        const overlayContentRect = overlayContent.getBoundingClientRect();
+        closeButton.style.left =
+          overlayContentRect.left - closeButton.offsetWidth - 20 + "px";
+      } else {
+        // Reset the position if the aspect ratio condition is not met
+        closeButton.style.left = "";
+      }
     }
   }
 });

@@ -132,7 +132,7 @@ button.disabled {
 
 .overlay-content {
   width: 80%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   text-align: center;
   padding: 20px;
@@ -239,6 +239,7 @@ button.disabled {
 .overlay-text h1 {
   font-size: 5em;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .close-overlay-button {
@@ -406,10 +407,10 @@ button.disabled {
   font-size: 1.2em;
   cursor: pointer;
   border-radius: 5px;
-  width: 80%;
+  width: 90%;
   text-align: left;
   transition: background 0.3s ease;
-  display: flex;
+  display: inline-flexbox;
   justify-content: space-between;
   align-items: center;
   height: auto;
