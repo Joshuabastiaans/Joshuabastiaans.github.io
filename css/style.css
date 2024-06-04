@@ -353,7 +353,7 @@ button.disabled {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(15, 15, 15);
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
   z-index: 1000;
   overflow-y: auto;
@@ -361,31 +361,114 @@ button.disabled {
 }
 
 .sub-overlay-content {
-  margin: 5% auto;
-  padding: 20px;
-  background: #333;
-  width: 90%;
-  max-width: 800px;
-  border-radius: 10px;
+  margin: auto;
+  padding: 40px;
+  background: #222;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 15px;
   font-family: "futura-pt", sans-serif;
   font-weight: 300;
   font-style: normal;
   text-align: justify;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center elements horizontally */
+  flex-direction: column;
+  align-items: center;
 }
 
 .sub-overlay-content h2 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  width: 100%; /* Ensure the heading takes full width */
-  text-align: center; /* Center the text */
+  font-size: 4em;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+  color: #ffcdfc;
 }
+
 .sub-overlay-content p {
-  font-size: 1.2em;
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  width: 100%;
+  line-height: 1.6;
+}
+
+.project-container {
+  width: 100%;
+  background: #333;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-container:hover {
+  transform: scale(1.02);
+}
+
+.project-header {
+  padding: 10px;
+  border-radius: 10px;
   margin-bottom: 20px;
-  width: 100%; /* Ensure paragraphs take full width */
+}
+
+.project-header h3 {
+  font-size: 2.5em;
+  color: #a773ec;
+  margin: 0;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-text {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.project-text h4 {
+  font-size: 1.5em;
+  color: #bf79e2;
+  margin-top: 20px;
+}
+
+.project-text p {
+  font-size: 1.2em;
+}
+
+.project-video {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-aspect-ratio: 1/1) {
+  .project-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .project-text,
+  .project-video {
+    width: 48%;
+  }
 }
 
 /* Question Buttons and Answers */
