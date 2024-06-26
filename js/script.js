@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mainOverlay.classList.add("visible");
       openOverlays.push(overlay);
       checkAspectRatioAndPositionButton();
+      checkAspectRatio();
     }, 10); // Short delay to ensure CSS applies correctly
   });
 
@@ -151,4 +152,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+
+  function checkAspectRatio() {
+    if (window.innerWidth / window.innerHeight >= 1) {
+      document.body.classList.add("horizontal");
+    } else {
+      document.body.classList.remove("horizontal");
+    }
+  }
+
+  window.addEventListener("resize", checkAspectRatio);
+  window.addEventListener("load", checkAspectRatio);
 });
