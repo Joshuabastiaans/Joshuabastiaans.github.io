@@ -385,11 +385,26 @@ button.disabled {
   color: #ffcdfc;
 }
 
+.sub-overlay-game {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
 .sub-overlay-content p {
   font-size: 1.3em;
   margin-bottom: 30px;
   width: 100%;
   line-height: 1.6;
+}
+
+.sub-overlay-image {
+  width: 100%;
+  /* aspect-ratio: 16 / 9; */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .project-container {
@@ -452,6 +467,7 @@ button.disabled {
 }
 
 .project-media {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -479,14 +495,6 @@ button.disabled {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.project-media {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
 .project-itch-widget iframe {
   height: auto;
   border-radius: 10px;
@@ -501,7 +509,7 @@ button.disabled {
 
 .horizontal .project-text,
 .horizontal .project-media {
-  width: 48%;
+  width: 100%;
 }
 
 .horizontal .sub-overlay-content {
