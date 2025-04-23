@@ -164,3 +164,18 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", checkAspectRatio);
   window.addEventListener("load", checkAspectRatio);
 });
+
+// 2) On click, replace facade with the real iframe
+document.querySelectorAll(".video-facade").forEach((facade) => {
+  facade.addEventListener("click", () => {
+    const id = facade.dataset.youtubeId;
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share";
+    iframe.setAttribute("loading", "lazy");
+    iframe.width = "100%";
+    iframe.height = "100%";
+    facade.replaceWith(iframe);
+  });
+});
