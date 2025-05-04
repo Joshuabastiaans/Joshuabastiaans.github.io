@@ -621,3 +621,10 @@ button.disabled {
   width: 64px;
   height: 64px;
 }
+
+.no-video #bg-video {
+  display: none;
+}
+.no-video #bg-poster {
+  display: block;
+}

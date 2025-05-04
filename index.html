@@ -81,6 +81,14 @@
   </style>
 </head>
 
+<script>
+  // very small inline check before render
+  if (matchMedia('(max-width: 768px)').matches ||
+    navigator.connection?.effectiveType?.includes('2g')) {
+    document.documentElement.classList.add('no-video');
+  }
+</script>
+
 <body>
   <h1 class="visually-hidden">Joshua Bastiaans – Game Designer portfolio</h1>
   <!-- 1) Poster image is now the first element -->
@@ -90,10 +98,8 @@
       loading="eager" />
   </div>
 
-  <video autoplay loop muted playsinline id="bg-video" preload="none" poster="assets/img/video-fallback.jpg">
-    <source src="assets/videos/Trailer.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <video id="bg-video" playsinline muted loop poster="assets/img/video-fallback.webp" preload="none"
+    data-src="assets/videos/Trailer.mp4"></video>
 
   <div class="top-spacer"></div>
   <div class="text-container">
