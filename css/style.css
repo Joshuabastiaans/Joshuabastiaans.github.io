@@ -640,3 +640,23 @@ button.disabled {
 .no-video #bg-poster {
   display: block;
 }
+
+#hero {
+  position: fixed; /* pull it out of normal flow */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -100; /* keep it behind all content */
+}
+
+#hero img,
+#hero video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
