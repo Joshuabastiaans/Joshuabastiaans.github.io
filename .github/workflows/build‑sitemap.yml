@@ -5,6 +5,8 @@ on:
     branches: [main] # or 'master' if that’s your default
   workflow_dispatch: # lets you run it manually from the Actions tab
 
+permissions:
+  contents: write # allow commit & push
 jobs:
   generate:
     runs-on: ubuntu-latest
