@@ -1,11 +1,7 @@
 /* js/hero-video.js */
 document.addEventListener("DOMContentLoaded", () => {
   // Don’t load video on mobile or slow connections
-  if (
-    matchMedia("(max-width:768px)").matches ||
-    navigator.connection?.effectiveType?.includes("2g")
-  )
-    return;
+  if (navigator.connection?.effectiveType?.includes("2g")) return;
 
   const hero = document.getElementById("hero");
 
