@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Joshua Bastiaans · Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Ultra font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ultra&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Hero / Landing Section -->
+    <header class="hero" id="top">
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
+        data-poster="assets/img/posters/intro_poster.webp"
+      >
+        <source data-src="assets/video/intro.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <h1 class="hero__name">Joshua Bastiaans</h1>
+
+        <h2 class="hero__tagline">
+          designing games
+          <span class="hero__typewriter-container">
+            <span id="typewriter-word" class="hero__typewriter"
+              >for your eyes</span
+            >
+            <span class="hero__cursor">|</span>
+          </span>
+        </h2>
+      </div>
+    </header>
+
+    <!-- Projects Section -->
+    <main>
+      <section class="feature-project" id="dont-blink">
+        <div class="feature-project__ambient" aria-hidden="true">
+          <div class="feature-project__eyes" id="dont-blink-eyes"></div>
+          <div class="feature-project__grain"></div>
+          <div class="feature-project__tint"></div>
+        </div>
+        <div class="feature-project__marquee" aria-hidden="true" data-marquee>
+          <div class="feature-project__marquee-track" data-marquee-track>
+            <span class="feature-project__marquee-word" data-marquee-word
+              >DON'T BLINK</span
+            >
+          </div>
+        </div>
+
+        <div class="feature-project__content">
+          <div class="feature-project__media">
+            <video
+              class="feature-project__video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="none"
+              poster="assets/img/posters/dont_blink_intro_poster.webp"
+              data-video-lazy
+            >
+              <source
+                data-src="assets/video/dont_blink_intro.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div
+            class="feature-project__panel"
+            data-feature-project
+            data-feature-project-id="dont-blink"
+          >
+            <div class="feature-project__info">
+              <div class="feature-project__summary">
+                <p class="feature-project__eyebrow">
+                  Featured WIP · In Production · Mobile
+                </p>
+                <h3 class="feature-project__title">DON'T BLINK</h3>
+                <p class="feature-project__role">
+                  <span>Role:</span> Team Lead, Game Design, Marketing
+                </p>
+                <p class="feature-project__tagline">
+                  DON'T BLINK OR THEY'LL COME FOR YOU
+                </p>
+
+                <div class="feature-project__description">
+                  <p>
+                    Our current project, DON’T BLINK, is a mobile top-down
+                    horror roguelike where monsters only move when the player
+                    blinks. This creates a constant tension between control and
+                    vulnerability, because the player is not only controlling
+                    the game, but also physically <em>involved</em> in the
+                    danger.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-project__details" hidden>
+              <h4>My Role</h4>
+              <p>
+                During the development of DON’T BLINK, I take on a combined lead
+                and design role, shaping the game’s direction while guiding the
+                team and production.
+              </p>
+              <p>
+                As the <strong>Project Lead</strong>, I set and guard the
+                creative direction of the project, ensuring every feature
+                supports our core pillars. I manage the planning and roadmap,
+                divide tasks within the team, and keep priorities clear for each
+                milestone, from the vertical slice to release. I organise
+                playtests, translate feedback into actionable improvements, and
+                review builds to maintain quality before every showcase.
+              </p>
+              <p>
+                As a <strong>Game Designer</strong>, I shape the game flow,
+                learning curve, and overall systems. I work on level and monster
+                design, and I developed the progression systems including coins,
+                diamonds, leveling, and reward structures.
+              </p>
+              <p>
+                On the <strong>Marketing</strong> side, I experimented with
+                early promotional materials such as posters and the project’s
+                website to test how we present the game’s identity.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="feature-project__reveal"
+          type="button"
+          data-feature-project-toggle
+          data-feature-project-target="dont-blink"
+        >
+          Read more (keep eyes open)
+        </button>
+        <div class="feature-project__fade" aria-hidden="true"></div>
+      </section>
+
+      <section class="section section--about" id="about">
+        <div class="section__inner about__content">
+          <div class="about__text">
+            <p class="about__intro">
+              Hi, my name is Joshua Bastiaans, a game designer with a focus on
+              <strong>experimental interaction design</strong>.
+            </p>
+            <p>
+              I'm creating experiences that use unconventional inputs, from
+              blink detection to physical controllers and audio-only gameplay.
+              By moving beyond traditional controllers, I aim to make
+              interactions feel more intuitive, playful, and immersive.
+            </p>
+            <p>
+              Another passion of mine is exploring the surreal and the
+              psychedelic. I like to create experiences that transport players
+              to places that feel impossible in everyday life, worlds that bend
+              perception, emotion, and reality.
+            </p>
+          </div>
+          <div class="about__image-container">
+            <img
+              src="assets/img/pfp.webp"
+              alt="Joshua Bastiaans"
+              class="about__image"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-project" id="madurodam-fireboat">
+        <div class="feature-project__ambient" aria-hidden="true">
+          <div
+            class="feature-project__bg-image"
+            style="background-image: url('assets/img/md_blusboot.webp')"
+          ></div>
+          <div class="feature-project__grain"></div>
+          <div class="feature-project__tint"></div>
+        </div>
+
+        <div class="feature-project__content">
+          <div class="feature-project__media">
+            <video
+              class="feature-project__video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="none"
+              poster="assets/img/posters/context_showcase_poster.webp"
+              data-video-lazy
+            >
+              <source
+                data-src="assets/video/context_showcase.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div
+            class="feature-project__panel"
+            data-feature-project
+            data-feature-project-id="madurodam-fireboat"
+          >
+            <div class="feature-project__info">
+              <div class="feature-project__summary">
+                <p class="feature-project__eyebrow">
+                  School project · Client work · Physical project
+                </p>
+                <h3 class="feature-project__title">Madurodam Fireboat</h3>
+                <p class="feature-project__role">
+                  <span>Role:</span> Gameplay Systems, Physical Controller
+                  Design
+                </p>
+                <p class="feature-project__tagline">
+                  Extinguish the fires on the cargo ship before it sinks!
+                </p>
+
+                <div class="feature-project__description">
+                  <p>
+                    This school project stood out because it was developed
+                    directly for a real client, the park Madurodam, a miniature
+                    theme park dedicated to recreating the Netherlands at scale.
+                  </p>
+                  <p>
+                    Our challenge was to redesign one of the park’s most iconic
+                    attractions, the fireboat, while modernizing outdated
+                    interaction and feedback systems.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-project__details" hidden>
+              <h4>Project Overview</h4>
+              <p>
+                In this experience, players step into the role of a fireboat
+                operator, grabbing the
+                <strong>fire hose</strong> to put out fires on a burning cargo
+                ship before it sinks beneath the waves.
+              </p>
+              <p>
+                We built a functional proof of concept used to validate gameplay
+                and interaction, serving as the foundation for final fabrication
+                by the attraction’s future manufacturers.
+              </p>
+
+              <h4>My Role</h4>
+              <p>
+                In this project was responsible for creating the
+                <strong>systems</strong> behind the actual gameplay as well as
+                designing the physical controller.
+              </p>
+              <p>
+                I divided the main system of the boat catching on fire in 3
+                rounds to accommodate for the right amount of challenge and lead
+                time of the interaction. The system looks at the performance and
+                speed of the last round to decide the difficulty of the next
+                round so the player always gets challenged without it feeling
+                impossible.
+              </p>
+              <p>
+                What drove me most was fixing what the original lacked: real
+                impact-feedback. We studied real fireboat hose systems to
+                understand movement, pressure, stance, and control, then
+                redesigned the entire controller into something intuitive,
+                inviting, and comfortable to use.
+              </p>
+              <p>
+                3D printing in combination with arduino’s and simple electronics
+                allowed us to quickly test and iterate on the design. The result
+                is a remix of the classic attraction, built to finally let
+                players feel like they’re actually putting out the fire.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="feature-project__reveal"
+          type="button"
+          data-feature-project-toggle
+          data-feature-project-target="madurodam-fireboat"
+        >
+          Read more
+        </button>
+        <div class="feature-project__fade" aria-hidden="true"></div>
+      </section>
+
+      <section class="feature-project" id="abyssal-voyage">
+        <div class="feature-project__ambient" aria-hidden="true">
+          <div
+            class="feature-project__bg-image"
+            style="background-image: url('assets/img/psychedelic_bg.webp')"
+          ></div>
+          <div class="feature-project__grain"></div>
+          <div class="feature-project__tint"></div>
+        </div>
+
+        <div class="feature-project__content">
+          <div class="feature-project__media">
+            <video
+              class="feature-project__video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="none"
+              poster="assets/img/psychedelic_bg.webp"
+              data-video-lazy
+            >
+              <source
+                data-src="assets/video/abyssal_voyage_intro.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div
+            class="feature-project__panel"
+            data-feature-project
+            data-feature-project-id="abyssal-voyage"
+          >
+            <div class="feature-project__info">
+              <div class="feature-project__summary">
+                <h3 class="feature-project__title">Abyssal Voyage</h3>
+                <p class="feature-project__tagline">
+                  <em>A deeper reality</em>
+                </p>
+
+                <div class="feature-project__description">
+                  <p>
+                    <em
+                      >“Can you reach a psychedelic state without using
+                      psychedelics?”</em
+                    >
+                    was the question we asked ourselves at the beginning of the
+                    project. This phenomena is already widely explored in a
+                    multitude of ways like breathwork or sensory deprivation. We
+                    wanted to know if this was also possible by playing a game,
+                    or rather, experiencing a game.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-project__details" hidden>
+              <h4>Overview</h4>
+              <p>
+                Deep underground in an ancient temple you try to find a deeper
+                version of yourself. To mimic an actual psychedelic trip we
+                split the experience into <strong>3 parts</strong>, each
+                elevating the trippyness with their own mechanic. To get to a
+                deeper level you have to explore the temple to find the
+                <em>“inner light”.</em>
+              </p>
+              <h4>Role</h4>
+              <p>
+                A psychedelic experience is very personal and so the experience
+                we created leaves a lot of room for your own interpretation. My
+                main responsibility was designing how the experience
+                <strong>communicates without explaining itself.</strong> I did
+                this by creating simple objectives that encourage the player to
+                explore this surreal world, while having a very
+                <em>minimalistic UI</em> so the player can get fully immersed.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="feature-project__reveal"
+          type="button"
+          data-feature-project-toggle
+          data-feature-project-target="abyssal-voyage"
+        >
+          Read more
+        </button>
+        <div class="feature-project__fade" aria-hidden="true"></div>
+      </section>
+
+      <section class="feature-project" id="heerema">
+        <div class="feature-project__ambient" aria-hidden="true">
+          <div
+            class="feature-project__bg-image"
+            style="background-image: url('assets/img/heerema_bg.webp')"
+          ></div>
+          <div class="feature-project__grain"></div>
+          <div class="feature-project__tint"></div>
+        </div>
+
+        <div class="feature-project__content">
+          <div class="feature-project__media">
+            <div class="feature-project__media-stack">
+              <video
+                class="feature-project__video feature-project__video--three-two"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="assets/img/posters/crane_controller_poster.webp"
+                data-video-lazy
+              >
+                <source
+                  data-src="assets/video/hmc/crane_controller.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+
+              <div class="feature-project__media-secondary">
+                <video
+                  class="feature-project__video feature-project__video--square"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/img/posters/monopile_poster.webp"
+                  data-video-lazy
+                >
+                  <source
+                    data-src="assets/video/hmc/monopile.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="feature-project__panel"
+            data-feature-project
+            data-feature-project-id="heerema"
+          >
+            <div class="feature-project__info">
+              <div class="feature-project__summary">
+                <p class="feature-project__eyebrow">
+                  Active Position · Python Tool Development · Visual Design
+                </p>
+                <h3 class="feature-project__title">Heerema</h3>
+                <p class="feature-project__role">
+                  <span>Role:</span> Blender Tools, Pipelines, Visualization
+                </p>
+                <p class="feature-project__tagline">
+                  Developing Blender tools and pipelines to optimize creative
+                  workflows.
+                </p>
+
+                <div class="feature-project__description">
+                  <p>
+                    With Blender’s rapid growth, I’m driving its adoption inside
+                    Heerema’s Visualization Team. Coming from 3DS Max with a
+                    large library of custom scripts and add-ons, I’m rebuilding
+                    that functionality in Blender so the team can transition
+                    smoothly without losing speed or quality.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-project__details" hidden>
+              <h4>Project Overview</h4>
+              <p>
+                Over the span of 2 years I’ve created a multitude of tools, from
+                which I will highlight the two most interesting.
+              </p>
+              <p>
+                The first one, <strong>Crane Controller</strong> is an addon
+                that lets you control and animate the vessel’s cranes easily.
+                You have the ability to either animate from the scene
+                controller, which is handy for quickly animating and picking up
+                objects. The other way is from the UI, which lets you set
+                precise angles for more technical animations.
+              </p>
+              <p>
+                The second project is the <strong>Monopile Generator</strong>.
+                This one is based on Blender’s Geometry Node System, which
+                allows for quick and iterative development. At first this
+                project itself wasn’t used a lot in our design team but did
+                spark a new project, <strong>AWP (Automated Work Pack)</strong>
+                , which took this concept to the next level. AWP created an
+                automated workspace for large-scale projects, for example Empire
+                Wind, which required the installation of more than hundred wind
+                turbines. Each turbine could automatically be initialized and
+                generated based on client drawings.
+              </p>
+              <h4>Impact</h4>
+              <p>
+                In the end, this workflow saved us a lot of setup time and
+                raised the bar for how we tackle
+                <strong>complex offshore installations.</strong>
+                It started as a small experiment, but grew into a tool that
+                genuinely reshaped our day-to-day work.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="feature-project__reveal"
+          type="button"
+          data-feature-project-toggle
+          data-feature-project-target="heerema"
+        >
+          Read more
+        </button>
+        <div class="feature-project__fade" aria-hidden="true"></div>
+      </section>
+
+      <section class="feature-project" id="lost-in-the-woods">
+        <div class="feature-project__ambient" aria-hidden="true">
+          <div
+            class="feature-project__bg-image"
+            style="background-image: url('assets/img/forest_bg.webp')"
+          ></div>
+
+          <div class="feature-project__grain"></div>
+          <div class="feature-project__tint"></div>
+        </div>
+
+        <div class="feature-project__content">
+          <div class="feature-project__media">
+            <div class="feature-project__audio-player">
+              <div class="audio-player">
+                <div class="audio-player__header">
+                  <span class="audio-player__label">Gameplay Audio</span>
+                  <div class="audio-player__headphones-hint">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                      <path
+                        d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+                      ></path>
+                    </svg>
+                    <span>Best with headphones</span>
+                  </div>
+                </div>
+
+                <div class="audio-player__controls">
+                  <button
+                    class="audio-player__play-btn"
+                    aria-label="Play audio"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M8 5V19L19 12L8 5Z" fill="currentColor" />
+                    </svg>
+                  </button>
+
+                  <div class="audio-player__progress-container">
+                    <div class="audio-player__progress-bar">
+                      <div class="audio-player__progress-fill"></div>
+                    </div>
+                  </div>
+
+                  <div class="audio-player__time">
+                    <span class="audio-player__current-time">0:00</span> /
+                    <span class="audio-player__duration">0:00</span>
+                  </div>
+                </div>
+
+                <audio class="audio-player__element" preload="metadata">
+                  <source
+                    src="assets/audio/lost_in_the_woods.mp3"
+                    type="audio/mpeg"
+                  />
+                </audio>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="feature-project__panel"
+            data-feature-project
+            data-feature-project-id="lost-in-the-woods"
+          >
+            <div class="feature-project__info">
+              <div class="feature-project__summary">
+                <p class="feature-project__eyebrow">VR Project · Game Design</p>
+                <h3 class="feature-project__title">Lost In The Woods</h3>
+                <p class="feature-project__role">
+                  <span>Role:</span> Game Design, Sound Design
+                </p>
+                <p class="feature-project__tagline">A game without vision</p>
+
+                <div class="feature-project__description">
+                  <p>
+                    “How do you design a game using only sound as feedback?”
+                    That question, posed during the Sound, Games & Interaction
+                    module, opened my eyes to an entirely new space of
+                    accessible game design. It made me realise how rich and
+                    immersive a game can be when built for players who are blind
+                    or visually impaired, and how much creativity emerges when
+                    you remove vision from the equation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-project__details" hidden>
+              <h4>Overview</h4>
+              <p>
+                We decided to step outside our comfort zone and chase an idea
+                that was a little less conventional: building the entire project
+                in VR. That choice opened up a lot more creative freedom. It let
+                us keep the game accessible to everyone while also making sure
+                every player had the exact same experience—no one could see
+                anything outside the headset, which we turned into a narrative
+                strength rather than a limitation.
+              </p>
+              <p>
+                In the game, your goal is to rescue a missing girl in a dark,
+                overgrown forest. But you’re not alone there. A sound-sensitive
+                creature roams the woods, making every move toward the child a
+                careful balance between urgency and silence. No one ever saw
+                this monster because no one survived to tell the tale, which is
+                why you go in blindfolded.
+              </p>
+              <h4>Role</h4>
+              <p>
+                My role in this project was mainly to design an interesting,
+                intuitive challenge that fit the narrative. I focused on
+                creating sound-based interactions, like branches and leaves the
+                player could accidentally step on. These subtle cues alerted the
+                monster, forcing the player to freeze on the spot and think
+                carefully about every step.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="feature-project__reveal"
+          type="button"
+          data-feature-project-toggle
+          data-feature-project-target="lost-in-the-woods"
+        >
+          Read more
+        </button>
+        <div class="feature-project__fade" aria-hidden="true"></div>
+      </section>
+    </main>
+
+    <!-- Optional simple footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <p>
+          © <span id="footer-year"></span> Joshua Bastiaans. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+      <a
+        href="https://www.instagram.com/joshuabastiaans_renders/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="floating-contact__btn"
+        aria-label="Instagram"
+      >
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"
+          />
+        </svg>
+      </a>
+      <a
+        href="mailto:joshuabastiaans@gmail.com"
+        class="floating-contact__btn"
+        aria-label="Email"
+      >
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://vkat.itch.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="floating-contact__btn"
+        aria-label="Itch.io"
+      >
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v1.03c0 1.303 1.22 2.45 2.325 2.45 1.33 0 2.436-1.102 2.436-2.41 0 1.308 1.07 2.41 2.4 2.41 1.328 0 2.362-1.102 2.362-2.41 0 1.308 1.137 2.41 2.466 2.41h.024c1.33 0 2.466-1.102 2.466-2.41 0 1.308 1.034 2.41 2.363 2.41 1.33 0 2.4-1.102 2.4-2.41 0 1.308 1.106 2.41 2.435 2.41C22.78 8.43 24 7.282 24 5.98V4.95c-.02-.62-2.082-2.99-3.13-3.612-3.253-.114-5.508-.134-8.87-.133-3.362 0-7.945.053-8.87.133zm6.376 6.477a2.74 2.74 0 0 1-.468.602c-.5.49-1.19.795-1.947.795a2.786 2.786 0 0 1-1.95-.795c-.182-.178-.32-.37-.446-.59-.127.222-.303.412-.486.59a2.788 2.788 0 0 1-1.95.795c-.092 0-.187-.025-.264-.052-.107 1.113-.152 2.176-.168 2.95v.005l-.006 1.167c.02 2.334-.23 7.564 1.03 8.85 1.952.454 5.545.662 9.15.663 3.605 0 7.198-.21 9.15-.664 1.26-1.284 1.01-6.514 1.03-8.848l-.006-1.167v-.004c-.016-.775-.06-1.838-.168-2.95-.077.026-.172.052-.263.052a2.788 2.788 0 0 1-1.95-.795c-.184-.178-.36-.368-.486-.59-.127.22-.265.412-.447.59a2.786 2.786 0 0 1-1.95.794c-.76 0-1.446-.303-1.948-.793a2.74 2.74 0 0 1-.468-.602 2.738 2.738 0 0 1-.463.602 2.787 2.787 0 0 1-1.95.794h-.16a2.787 2.787 0 0 1-1.95-.793 2.738 2.738 0 0 1-.464-.602zm-2.004 2.59v.002c.795.002 1.5 0 2.373.953.687-.072 1.406-.108 2.125-.107.72 0 1.438.035 2.125.107.873-.953 1.578-.95 2.372-.953.376 0 1.876 0 2.92 2.934l1.123 4.028c.832 2.995-.266 3.068-1.636 3.07-2.03-.075-3.156-1.55-3.156-3.025-1.124.184-2.436.276-3.748.277-1.312 0-2.624-.093-3.748-.277 0 1.475-1.125 2.95-3.156 3.026-1.37-.004-2.468-.077-1.636-3.072l1.122-4.027c1.045-2.934 2.545-2.934 2.92-2.934zM12 12.714c-.002.002-2.14 1.964-2.523 2.662l1.4-.056v1.22c0 .056.56.033 1.123.007.562.026 1.124.05 1.124-.008v-1.22l1.4.055C14.138 14.677 12 12.713 12 12.713z"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Lenis for smooth scrolling -->
+    <script
+      defer
+      src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
+    ></script>
+
+    <!-- JS -->
+    <script defer src="assets/js/main.js"></script>
+  </body>
+</html>
