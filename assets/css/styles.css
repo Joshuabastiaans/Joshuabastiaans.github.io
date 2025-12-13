@@ -864,11 +864,15 @@ body {
   }
 
   .hero__name {
-    letter-spacing: 0.06em;
+    font-size: clamp(1.75rem, 9vw, 3rem);
+    letter-spacing: 0.04em;
+    white-space: normal;
+    line-height: 1.1;
   }
 
   .hero__tagline {
-    max-width: 24rem;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    max-width: 100%;
   }
 }
 
