@@ -63,8 +63,17 @@
   </head>
 
   <body>
+    <a href="#dont-blink" class="skip-link">Skip to content</a>
+
+    <nav class="hero__nav">
+      <a href="#dont-blink">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <!-- Hero / Landing Section -->
     <header class="hero" id="top">
+
       <video
         class="hero__video"
         autoplay
@@ -81,7 +90,9 @@
       <div class="hero__overlay"></div>
 
       <div class="hero__content">
-        <h1 class="hero__name">Joshua Bastiaans</h1>
+        <h1 class="hero__name">
+          Joshua Bastiaans<span class="sr-only"> · Game Design Portfolio</span>
+        </h1>
 
         <h2 class="hero__tagline">
           designing games
@@ -725,7 +736,7 @@
     </main>
 
     <!-- Optional simple footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
       <div class="footer__inner">
         <div class="footer__social">
           <a
