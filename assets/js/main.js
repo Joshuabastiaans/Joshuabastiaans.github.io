@@ -3,10 +3,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveData = Boolean(connection && connection.saveData);
+  const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+  const deviceMemory = typeof navigator.deviceMemory === "number" ? navigator.deviceMemory : 0;
+  const hardwareConcurrency = typeof navigator.hardwareConcurrency === "number" ? navigator.hardwareConcurrency : 0;
+  const isLikelyLowEndDevice = (deviceMemory > 0 && deviceMemory < 4) || (hardwareConcurrency > 0 && hardwareConcurrency <= 4);
+
   // --- Lenis Smooth Scroll Setup ---
   let lenis;
   let lenisRafId = null;
-  const canUseLenis = !prefersReducedMotion && typeof window.Lenis === "function";
+  const canUseLenis = !prefersReducedMotion && !saveData && !isCoarsePointer && !isLikelyLowEndDevice && typeof window.Lenis === "function";
 
   const startLenisRaf = () => {
     if (!lenis || lenisRafId !== null) return;
@@ -106,8 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    const saveData = Boolean(connection && connection.saveData);
     const effectiveType = connection && typeof connection.effectiveType === "string" ? connection.effectiveType : "";
     const isLikelySlowConnection = effectiveType === "slow-2g" || effectiveType === "2g" || effectiveType === "3g";
 
@@ -494,6 +499,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // DON'T BLINK background eyes
   const eyesContainer = document.getElementById("dont-blink-eyes");
   if (eyesContainer) {
+    const MAX_EYES = 36;
+    const EYES_FPS = 30;
+    const EYES_FRAME_MS = 1000 / EYES_FPS;
+    const RECT_REFRESH_MS = 140;
+
     const GRID_LIMITS = {
       minCols: 3,
       maxCols: 9,
@@ -505,6 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
+    let pointerDirty = true;
     const eyes = [];
 
     const randomRange = (min, max) => min + Math.random() * (max - min);
@@ -577,7 +588,9 @@ document.addEventListener("DOMContentLoaded", () => {
         curY: cy,
         targetX: cx,
         targetY: cy,
-        travel: randomRange(10, 26)
+        travel: randomRange(10, 26),
+        rect: null,
+        lastRectUpdate: 0
       };
 
       const cell = document.createElement("div");
@@ -600,7 +613,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const buildEyes = () => {
       const { cols, rows } = computeGridShape();
       const expandedMultiplier = eyesContainer.getAttribute("data-eyes-expanded") === "true" ? 1.6 : 1;
-      const needed = Math.round(rows * cols * expandedMultiplier);
+      const needed = Math.min(MAX_EYES, Math.round(rows * cols * expandedMultiplier));
 
       if (eyes.length < needed) {
         const toAdd = needed - eyes.length;
@@ -621,11 +634,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Expose a simple hook so other parts of the page can request a rebuild
     window.rebuildBlinkEyes = buildEyes;
 
-    const updateEyeTargets = (svg) => {
+    const updateEyeTargets = (svg, now, forceRectRefresh) => {
       const state = svg._state;
       if (!state) return;
-      const rect = svg.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
+
+      if (forceRectRefresh || !state.rect || now - state.lastRectUpdate > RECT_REFRESH_MS) {
+        const rect = svg.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        state.rect = { left: rect.left, top: rect.top, width: rect.width, height: rect.height };
+        state.lastRectUpdate = now;
+      }
+
+      const rect = state.rect;
+      if (!rect) return;
 
       const cxScreen = rect.left + (state.cx / svg.viewBox.baseVal.width) * rect.width;
       const cyScreen = rect.top + (state.cy / svg.viewBox.baseVal.height) * rect.height;
@@ -642,22 +663,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let eyesRafId = null;
     let eyesAnimating = false;
+    let lastEyesFrame = 0;
 
-    const animateEyes = () => {
+    const animateEyes = (time) => {
       if (!eyesAnimating || document.hidden) {
         eyesRafId = null;
         return;
       }
+
+      if (typeof time === "number") {
+        if (time - lastEyesFrame < EYES_FRAME_MS) {
+          eyesRafId = requestAnimationFrame(animateEyes);
+          return;
+        }
+        lastEyesFrame = time;
+      }
+
+      const now = typeof time === "number" ? time : performance.now();
+      const forceRectRefresh = pointerDirty;
+
       eyes.forEach((cell) => {
         const svg = cell.querySelector("svg");
         if (!svg || !svg._state) return;
-        updateEyeTargets(svg);
+        updateEyeTargets(svg, now, forceRectRefresh);
         const state = svg._state;
         state.curX += (state.targetX - state.curX) * 0.12;
         state.curY += (state.targetY - state.curY) * 0.12;
         state.pupil.setAttribute("cx", state.curX.toFixed(2));
         state.pupil.setAttribute("cy", state.curY.toFixed(2));
       });
+
+      pointerDirty = false;
       eyesRafId = requestAnimationFrame(animateEyes);
     };
 
@@ -681,6 +717,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const handlePointer = (event) => {
       mouseX = event.clientX;
       mouseY = event.clientY;
+      pointerDirty = true;
     };
 
     const handleTouch = (event) => {
@@ -688,21 +725,29 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!touch) return;
       mouseX = touch.clientX;
       mouseY = touch.clientY;
+      pointerDirty = true;
     };
 
     if (!prefersReducedMotion) {
       window.addEventListener("mousemove", handlePointer, { passive: true });
       window.addEventListener("touchmove", handleTouch, { passive: true });
     }
+    let resizeTimer;
     window.addEventListener("resize", () => {
-      buildEyes();
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        buildEyes();
+        pointerDirty = true;
+      }, 150);
     });
 
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) stopEyes();
     });
 
+    let usesEyesObserver = false;
     if (!prefersReducedMotion && "IntersectionObserver" in window) {
+      usesEyesObserver = true;
       const section = document.getElementById("dont-blink") || eyesContainer;
       const eyesObserver = new IntersectionObserver(
         (entries) => {
@@ -717,7 +762,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     buildEyes();
-    startEyes();
+    if (!prefersReducedMotion && !usesEyesObserver) {
+      startEyes();
+    }
   }
 
   // --- Custom Audio Player ---
