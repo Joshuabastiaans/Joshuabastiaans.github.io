@@ -1,4 +1,4 @@
-const VERSION = 'v5';
+const VERSION = 'v6';
 const CORE_CACHE = `portfolio-core-${VERSION}`;
 const RUNTIME_CACHE = `portfolio-runtime-${VERSION}`;
 

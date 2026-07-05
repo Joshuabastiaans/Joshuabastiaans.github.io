@@ -53,6 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Prefer smaller video encodes on small screens to cut mobile bandwidth
+  const useMobileVideo = window.matchMedia("(max-width: 768px)").matches;
+  const pickVideoSrc = (source) =>
+    (useMobileVideo && source.getAttribute("data-src-mobile")) ||
+    source.getAttribute("data-src");
+
   const typewriterElement = document.getElementById("typewriter-word");
   const footerYearElement = document.getElementById("footer-year");
   const heroElement = document.querySelector(".hero");
@@ -96,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadVideoSources = () => {
       if (!videoSources.length) return;
       videoSources.forEach((source) => {
-        const dataSrc = source.getAttribute("data-src");
+        const dataSrc = pickVideoSrc(source);
         if (dataSrc && source.src !== dataSrc) {
           source.src = dataSrc;
         }
@@ -387,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sources.length) return;
 
       sources.forEach((source) => {
-        const dataSrc = source.getAttribute("data-src");
+        const dataSrc = pickVideoSrc(source);
         if (dataSrc && source.src !== dataSrc) {
           source.src = dataSrc;
         }

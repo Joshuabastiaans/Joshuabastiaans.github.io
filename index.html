@@ -140,6 +140,14 @@
       />
     </noscript>
 
+    <!-- Preload hero poster: it is the LCP element, especially on mobile -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/img/posters/intro_poster.webp"
+      fetchpriority="high"
+    />
+
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
@@ -162,9 +170,14 @@
         loop
         playsinline
         preload="none"
+        poster="assets/img/posters/intro_poster.webp"
         data-poster="assets/img/posters/intro_poster.webp"
       >
-        <source data-src="assets/video/intro.mp4" type="video/mp4" />
+        <source
+          data-src="assets/video/intro.mp4"
+          data-src-mobile="assets/video/intro_mobile.mp4"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
 
@@ -357,6 +370,7 @@
             >
               <source
                 data-src="assets/video/context_showcase.mp4"
+                data-src-mobile="assets/video/context_showcase_mobile.mp4"
                 type="video/mp4"
               />
               Your browser does not support the video tag.
@@ -478,6 +492,7 @@
             >
               <source
                 data-src="assets/video/abyssal_voyage_intro.mp4"
+                data-src-mobile="assets/video/abyssal_voyage_intro_mobile.mp4"
                 type="video/mp4"
               />
               Your browser does not support the video tag.
