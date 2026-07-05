@@ -2,62 +2,143 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Joshua Bastiaans · Game Design Portfolio</title>
+    <title>
+      Joshua Bastiaans · Game Designer & Co-Founder of Collateral Damage
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Designing games that react to you. Focused on interaction, perception, and experimental play."
+      content="Portfolio of Joshua Bastiaans, game designer and co-founder of game studio Collateral Damage (DON'T BLINK). Experimental interaction design: blink detection, physical controllers, and audio-only play."
     />
     <meta
       name="keywords"
-      content="Joshua Bastiaans, Game Design, Portfolio, Interactive Design, Visual Experience, Game Developer, Unity, Unreal Engine"
+      content="Joshua Bastiaans, Game Designer, Game Design Portfolio, Collateral Damage, Collateral Damage Games, DON'T BLINK, Interactive Design, Experimental Interaction Design, Game Developer, Unity, Unreal Engine"
     />
     <meta name="author" content="Joshua Bastiaans" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#050608" />
     <link rel="canonical" href="https://joshuabastiaans.com/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://joshuabastiaans.com/" />
+    <meta property="og:site_name" content="Joshua Bastiaans Portfolio" />
+    <meta property="og:locale" content="en_US" />
     <meta
       property="og:title"
-      content="Joshua Bastiaans · Game Design Portfolio"
+      content="Joshua Bastiaans · Game Designer & Co-Founder of Collateral Damage"
     />
     <meta
       property="og:description"
-      content="Designing games that react to you. Focused on interaction, perception, and experimental play."
+      content="Portfolio of Joshua Bastiaans, game designer and co-founder of game studio Collateral Damage (DON'T BLINK). Experimental interaction design and play."
     />
     <meta
       property="og:image"
       content="https://joshuabastiaans.com/assets/img/posters/intro_poster.webp"
     />
+    <meta
+      property="og:image:alt"
+      content="Joshua Bastiaans game design portfolio"
+    />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://joshuabastiaans.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://joshuabastiaans.com/" />
     <meta
-      property="twitter:title"
-      content="Joshua Bastiaans · Game Design Portfolio"
+      name="twitter:title"
+      content="Joshua Bastiaans · Game Designer & Co-Founder of Collateral Damage"
     />
     <meta
-      property="twitter:description"
-      content="Designing games for your eyes. Explore the interactive portfolio of Joshua Bastiaans."
+      name="twitter:description"
+      content="Portfolio of Joshua Bastiaans, game designer and co-founder of game studio Collateral Damage (DON'T BLINK)."
     />
     <meta
-      property="twitter:image"
+      name="twitter:image"
       content="https://joshuabastiaans.com/assets/img/posters/intro_poster.webp"
     />
 
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://joshuabastiaans.com/#person",
+            "name": "Joshua Bastiaans",
+            "url": "https://joshuabastiaans.com/",
+            "image": "https://joshuabastiaans.com/assets/img/pfp.webp",
+            "jobTitle": "Game Designer",
+            "email": "mailto:joshuabastiaans@gmail.com",
+            "description": "Game designer focused on experimental interaction design and co-founder of game studio Collateral Damage.",
+            "worksFor": {
+              "@id": "https://joshuabastiaans.com/#collateral-damage"
+            },
+            "sameAs": [
+              "https://www.instagram.com/joshuabastiaans_renders/",
+              "https://vkat.itch.io/"
+            ],
+            "knowsAbout": [
+              "Game Design",
+              "Experimental Interaction Design",
+              "Level Design",
+              "Sound Design",
+              "Unity",
+              "Unreal Engine",
+              "Blender"
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://joshuabastiaans.com/#collateral-damage",
+            "name": "Collateral Damage",
+            "url": "https://collateral-damage-games.com/",
+            "founder": { "@id": "https://joshuabastiaans.com/#person" },
+            "description": "Independent game studio co-founded by Joshua Bastiaans, currently developing the mobile horror roguelike DON'T BLINK.",
+            "sameAs": ["https://dont-blink.collateral-damage-games.com/"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://joshuabastiaans.com/#website",
+            "url": "https://joshuabastiaans.com/",
+            "name": "Joshua Bastiaans · Game Design Portfolio",
+            "author": { "@id": "https://joshuabastiaans.com/#person" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "VideoGame",
+            "name": "DON'T BLINK",
+            "url": "https://dont-blink.collateral-damage-games.com/",
+            "gamePlatform": "Mobile",
+            "genre": ["Horror", "Roguelike"],
+            "author": { "@id": "https://joshuabastiaans.com/#person" },
+            "publisher": {
+              "@id": "https://joshuabastiaans.com/#collateral-damage"
+            }
+          }
+        ]
+      }
+    </script>
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.ico" />
-    <link rel="apple-touch-icon" href="assets/img/favicon.svg" />
+    <link rel="icon" href="assets/img/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/img/favicon.ico" />
     <link rel="manifest" href="manifest.json" />
-    <!-- Ultra font -->
+    <!-- Ultra font (async, non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Ultra&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Ultra&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -825,11 +906,8 @@
       </a>
     </div>
 
-    <!-- Lenis for smooth scrolling -->
-    <script
-      defer
-      src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
-    ></script>
+    <!-- Lenis for smooth scrolling (self-hosted) -->
+    <script defer src="assets/js/vendor/lenis.min.js"></script>
 
     <!-- JS -->
     <script defer src="assets/js/main.js"></script>

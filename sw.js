@@ -1,4 +1,4 @@
-const VERSION = 'v4';
+const VERSION = 'v5';
 const CORE_CACHE = `portfolio-core-${VERSION}`;
 const RUNTIME_CACHE = `portfolio-runtime-${VERSION}`;
 
@@ -9,6 +9,7 @@ const CORE_ASSETS = [
   './index.html',
   './assets/css/styles.css',
   './assets/js/main.js',
+  './assets/js/vendor/lenis.min.js',
   './assets/img/favicon.ico',
   './manifest.json'
 ];
